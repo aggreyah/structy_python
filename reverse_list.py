@@ -32,10 +32,10 @@ if __name__ == "__main__":
     b.next = c
     c.next = d
 
-    print(linked_list_values_recursion(a))
+    # print(linked_list_values_recursion(a))
 
-    reverse_list_recursive(a)
+    # reverse_list_recursive(a)
 
-    print("** reversed **")
+    # print("** reversed **")
 
-    print(linked_list_values_recursion(d))
+    print(linked_list_values_recursion(reverse_list_recursive(a)))
