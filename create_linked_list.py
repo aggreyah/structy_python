@@ -14,11 +14,11 @@ def create_linked_list(values):
     return dummy.next
 
 
-def create_linked_list_recursive(values):
-    if not values:
+def create_linked_list_recursive(values, i=0):
+    if i == len(values):
         return None
-    head = Node(values[0])
-    head.next = create_linked_list_recursive(values[1:])
+    head = Node(values[i])
+    head.next = create_linked_list_recursive(values, i + 1)
     return head
 
 
