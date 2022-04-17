@@ -3,7 +3,7 @@ from node import *
 
 def is_univalue_list(head):
     head_value = head.value
-    current = head
+    current = head.next
     while current is not None:
         if current.value != head_value:
             return False
@@ -23,11 +23,11 @@ def is_univalue_list_recursive(head, prev=None):
 if __name__ == "__main__":
     a = Node(7)
     b = Node(7)
-    c = Node(7)
+    c = Node(8)
 
     a.next = b
     b.next = c
 
     # 7 -> 7 -> 4
 
-    print(is_univalue_list_recursive(a))
+    print(is_univalue_list(a))
