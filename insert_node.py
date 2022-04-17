@@ -22,23 +22,22 @@ def insert_node(head, value, index):
     return head
 
 
-def insert_node_recursive(head, value, index, count = 0):
+def insert_node_recursive(head, value, index, count=0):
     if index == 0:
         value_node = Node(value)
         value_node.next = head
         return value_node
 
     if head is None:
-        return  None
+        return None
 
     if count == index - 1:
         value_node = Node(value)
         temp = head.next
         head.next = value_node
         value_node.next = temp
-        return
 
-    insert_node_recursive(head.next, value, index, count + 1)
+    head.next = insert_node_recursive(head.next, value, index, count + 1)
     return head
 
 
@@ -68,5 +67,5 @@ if __name__ == "__main__":
     # insert_node(a, 'm', 4)
     # a -> b -> c -> d -> m
 
-    print(linked_list_values(insert_node_recursive(a, 'm', 4)))
+    print(linked_list_values(insert_node_recursive(a, 'm', 0)))
     # a -> b -> x -> c -> d
