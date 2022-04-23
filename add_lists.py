@@ -2,54 +2,6 @@ from linked_list_values import linked_list_values
 from node import Node
 
 
-def add_lists(head_1, head_2):
-    current_1 = head_1
-    current_2 = head_2
-    dummy = Node(None)
-    tail = dummy
-    carry = 0
-    while current_1 is not None and current_2 is not None:
-        current_sum = current_1.value + current_2.value + carry
-        sum_node = Node(current_sum % 10)
-        tail.next = sum_node
-        tail = tail.next
-        if current_sum >= 10:
-            carry = 1
-        else:
-            carry = 0
-        current_1 = current_1.next
-        current_2 = current_2.next
-    if current_1 is not None:
-        while current_1 is not None:
-            current_sum_1 = current_1.value + carry
-            sum_node = Node(current_sum_1 % 10)
-            tail.next = sum_node
-            tail = tail.next
-            if current_sum_1 >= 10:
-                carry = 1
-            else:
-                carry = 0
-            current_1 = current_1.next
-
-    if current_2 is not None:
-        while current_2 is not None:
-            current_sum_2 = current_2.value + carry
-            sum_node = Node(current_sum_2 % 10)
-            tail.next = sum_node
-            tail = tail.next
-            if current_sum_2 >= 10:
-                carry = 1
-            else:
-                carry = 0
-            current_2 = current_2.next
-
-    if carry == 1:
-        carry_node = Node(carry)
-        tail.next = carry_node
-
-    return dummy.next
-
-
 def add_lists_recursive(head_1, head_2, carry=0):
     if head_1 is None and head_2 is None and carry == 0:
         return None
@@ -97,4 +49,4 @@ if __name__ == "__main__":
     b1.next = b2
     # 6
 
-    print(linked_list_values(add_lists_recursive(a1, b1)))
+    print(linked_list_values(add_lists(a1, b1)))
