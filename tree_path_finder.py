@@ -29,10 +29,29 @@ def _path_finder(root, target):
 
 
 if __name__ == "__main__":
-    root = TreeNode(0)
-    curr = root
-    for i in range(1, 19500):
-        curr.right = TreeNode(i)
-        curr = curr.right
+    a = TreeNode("a")
+    b = TreeNode("b")
+    c = TreeNode("c")
+    d = TreeNode("d")
+    e = TreeNode("e")
+    f = TreeNode("f")
+    g = TreeNode("g")
+    h = TreeNode("h")
 
-    print(path_finder(root, 16281))
+    a.left = b
+    a.right = c
+    b.left = d
+    b.right = e
+    c.right = f
+    e.left = g
+    f.right = h
+
+    #      a
+    #    /   \
+    #   b     c
+    #  / \     \
+    # d   e     f
+    #    /       \
+    #   g         h
+
+    print(path_finder(a, "c"))  # -> ['a', 'c']
