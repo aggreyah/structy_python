@@ -21,9 +21,7 @@ def depth_first_values_recursive(root):
     if root is None:
         return []
     result = [root.value]
-    result.extend(depth_first_values_recursive(root.left))
-    result.extend(depth_first_values_recursive(root.right))
-    return result
+    return result + depth_first_values_recursive(root.left) + depth_first_values_recursive(root.right)
 
 
 if __name__ == "__main__":
